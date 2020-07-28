@@ -1,6 +1,7 @@
 /*global google*/
 import React, { Component } from "react";
 import {
+  Marker,
   withGoogleMap,
   withScriptjs,
   GoogleMap,
@@ -44,6 +45,7 @@ class Map extends React.Component {
           lngDestin: lng,
         });
         console.log(this.state.latDestin, this.state.lngDestin);
+        this.getpositon();
       },
       (error) => {
         console.error(error);
@@ -100,31 +102,27 @@ class Map extends React.Component {
   };
 
   componentDidMount = () => {
+    this.getpositon();
     console.log("component" + this.state.lat);
   };
 
   render() {
     const GoogleMapExample = withGoogleMap((props) => (
       <GoogleMap
-        defaultCenter={{ lat: 40.756795, lng: -73.954298 }}
+        defaultCenter={{ lat: this.state.latOrigin, lng: this.state.lngOrigin }}
         defaultZoom={13}
       >
         <DirectionsRenderer directions={this.state.directions} />
+        <Marker lat={this.state.latOrigin} lng={this.state.lngOrigin} />
       </GoogleMap>
     ));
 
     return (
       <div>
-        {this.state.destinationAddress != "" ? (
-          <GoogleMapExample
-            containerElement={
-              <div style={{ height: `500px`, width: "500px" }} />
-            }
-            mapElement={<div style={{ height: `100%` }} />}
-          />
-        ) : (
-          ""
-        )}
+        <GoogleMapExample
+          containerElement={<div style={{ height: `500px`, width: "500px" }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        ></GoogleMapExample>
 
         <form onSubmit={this.handleSubmit}>
           <div>
