@@ -7,6 +7,7 @@ import {
   GoogleMap,
   DirectionsRenderer,
 } from "react-google-maps";
+
 import Geocode from "react-geocode";
 
 Geocode.setApiKey("AIzaSyCTIuglr0yoyg7N3YinUj0xEeKmQCA8VT0");
@@ -91,6 +92,7 @@ class Map extends React.Component {
       },
       (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
+          console.log(result);
           this.setState({
             directions: result,
           });
