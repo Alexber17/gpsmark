@@ -4,7 +4,28 @@ import { withScriptjs } from "react-google-maps";
 import Map from "./components/Map.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function App() {
+class App extends Component {
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData = () => {
+    fetch("http://localhost:3000/users")
+      .then((data) => data.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.log(err));
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Menu />
+      </div>
+    );
+  }
+}
+
+function Menu() {
   return (
     <Router>
       <div>
