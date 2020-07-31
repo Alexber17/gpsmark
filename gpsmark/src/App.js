@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { withScriptjs } from "react-google-maps";
 import Map from "./components/Map.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import AddPlaces from "./components/AddPlaces.js";
 
 class App extends Component {
   componentDidMount() {
@@ -35,7 +36,7 @@ function Menu() {
               <Link to="/Map">MapApp</Link>
             </li>
             <li>
-              <Link to="/Add">Add</Link>
+              <Link to="/AddPlaces">Add</Link>
             </li>
           </ul>
         </nav>
@@ -46,8 +47,8 @@ function Menu() {
           <Route path="/Map">
             <MapApp />
           </Route>
-          <Route path="/Add">
-            <Add />
+          <Route path="/AddPlaces">
+            <AddPlaces />
           </Route>
         </Switch>
       </div>
@@ -64,14 +65,6 @@ function MapApp() {
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIuglr0yoyg7N3YinUj0xEeKmQCA8VT0"
         loadingElement={<div style={{ height: `100%` }} />}
       />
-    </div>
-  );
-}
-
-function Add() {
-  return (
-    <div className="App">
-      <h3>Add</h3>
     </div>
   );
 }

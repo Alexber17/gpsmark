@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
   # GET /places
   def index
     @places = Place.all
+    
 
     render json: @places
   end
@@ -16,9 +17,10 @@ class PlacesController < ApplicationController
   # POST /places
   def create
     @place = Place.new(place_params)
+    @place.user_id = params[:user_id]
 
     if @place.save
-      render json: @place, status: :created, location: @place
+      render json: @place, status: :created 
     else
       render json: @place.errors, status: :unprocessable_entity
     end
