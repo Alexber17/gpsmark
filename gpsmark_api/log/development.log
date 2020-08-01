@@ -4357,3 +4357,601 @@ Completed 200 OK in 30ms (Views: 7.5ms | ActiveRecord: 18.2ms | Allocations: 354
 Completed 200 OK in 64ms (Views: 0.1ms | ActiveRecord: 44.4ms | Allocations: 6589)
 
 
+Started GET "/places/1" for ::1 at 2020-08-01 00:31:20 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (2.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 28ms (Views: 10.8ms | ActiveRecord: 2.5ms | Allocations: 2862)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:42:16 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:42:16 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (7.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (2.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+  [1m[36mPlace Load (7.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 30ms (Views: 13.0ms | ActiveRecord: 11.2ms | Allocations: 3932)
+
+
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (9.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 59ms (Views: 0.1ms | ActiveRecord: 20.6ms | Allocations: 7315)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:42:33 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:42:33 -0400
+Processing by UsersController#index as */*
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (15.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (15.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (1.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPlace Load (6.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 44ms (Views: 19.8ms | ActiveRecord: 17.0ms | Allocations: 5065)
+
+
+  [1m[36mPlace Load (5.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 62ms (Views: 0.1ms | ActiveRecord: 27.9ms | Allocations: 7510)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:42:46 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:42:46 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (10.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (1.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mUser Load (12.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/places_controller.rb:15:in `show'
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 22ms (Views: 8.1ms | ActiveRecord: 12.0ms | Allocations: 3705)
+
+
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (1.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 40ms (Views: 0.1ms | ActiveRecord: 14.1ms | Allocations: 7065)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:43:11 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:43:11 -0400
+Processing by UsersController#index as */*
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPlace Load (1.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (1.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 10ms (Views: 4.9ms | ActiveRecord: 1.8ms | Allocations: 5061)
+
+
+  [1m[36mPlace Load (1.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 5.0ms | Allocations: 7506)
+
+
+Started GET "/users" for ::1 at 2020-08-01 00:43:23 -0400
+Started GET "/places/1" for ::1 at 2020-08-01 00:43:23 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (2.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (23.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 35ms (Views: 6.0ms | ActiveRecord: 25.9ms | Allocations: 5217)
+
+
+  [1m[36mPlace Load (1.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 37ms (Views: 0.1ms | ActiveRecord: 26.1ms | Allocations: 7063)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:46:10 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:46:10 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (7.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (38.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 54ms (Views: 3.3ms | ActiveRecord: 46.1ms | Allocations: 3203)
+
+
+  [1m[36mUser Load (39.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (10.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 58ms (Views: 0.1ms | ActiveRecord: 50.0ms | Allocations: 6363)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:46:18 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:46:18 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Processing by UsersController#index as */*
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.6ms | Allocations: 3077)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 4351)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:46:38 -0400
+Processing by PlacesController#show as */*
+Started GET "/users" for ::1 at 2020-08-01 00:46:38 -0400
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (3.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/places_controller.rb:15:in `show'
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 3.3ms | ActiveRecord: 4.3ms | Allocations: 3731)
+
+
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 6362)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:47:05 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:47:05 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (2.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 8ms (Views: 2.1ms | ActiveRecord: 3.4ms | Allocations: 5176)
+
+
+  [1m[36mPlace Load (14.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 15.5ms | Allocations: 7064)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:47:36 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (3.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 8ms (Views: 2.6ms | ActiveRecord: 4.4ms | Allocations: 2733)
+
+
+Started GET "/users" for ::1 at 2020-08-01 00:47:36 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 4151)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:49:17 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:49:17 -0400
+Processing by UsersController#index as */*
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (1.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (9.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 22ms (Views: 5.3ms | ActiveRecord: 9.9ms | Allocations: 5060)
+
+
+  [1m[36mPlace Load (11.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 15.1ms | Allocations: 7158)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:50:14 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:50:14 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (1.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (5.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 17ms (Views: 6.5ms | ActiveRecord: 6.7ms | Allocations: 4023)
+
+
+  [1m[36mPlace Load (17.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (30.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 66ms (Views: 0.1ms | ActiveRecord: 56.5ms | Allocations: 7023)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:50:19 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:50:19 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (45.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/places_controller.rb:15:in `show'
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 51ms (Views: 4.1ms | ActiveRecord: 45.6ms | Allocations: 3714)
+
+
+  [1m[36mPlace Load (3.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (15.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 21.5ms | Allocations: 7063)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:51:58 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:51:58 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (5.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (3.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (1.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 6.9ms | Allocations: 4852)
+
+
+  [1m[36mPlace Load (10.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 25ms (Views: 5.3ms | ActiveRecord: 16.2ms | Allocations: 7477)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:54:10 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Started GET "/users" for ::1 at 2020-08-01 00:54:10 -0400
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (1.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 2.2ms | Allocations: 3061)
+
+
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4151)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:54:38 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:54:38 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (20.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (55.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 90ms (Views: 0.1ms | ActiveRecord: 79.7ms | Allocations: 4594)
+
+
+  [1m[36mPlace Load (119.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (4.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 129ms (Views: 4.3ms | ActiveRecord: 123.4ms | Allocations: 6205)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:56:09 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Started GET "/users" for ::1 at 2020-08-01 00:56:09 -0400
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Processing by UsersController#index as */*
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 1.7ms | Allocations: 3455)
+
+
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 4352)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:56:14 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:56:14 -0400
+Processing by UsersController#index as */*
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (47.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mUser Load (61.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (10.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 66ms (Views: 6.3ms | ActiveRecord: 58.0ms | Allocations: 3548)
+
+
+  [1m[36mPlace Load (63.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (3.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 139ms (Views: 0.1ms | ActiveRecord: 128.0ms | Allocations: 7506)
+
+
+Started GET "/users" for ::1 at 2020-08-01 00:57:27 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (18.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 24.6ms | Allocations: 4151)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:57:29 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 1.2ms | Allocations: 2733)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:57:44 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:57:44 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (19.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (48.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 73ms (Views: 3.4ms | ActiveRecord: 67.4ms | Allocations: 3997)
+
+
+  [1m[36mPlace Load (79.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (10.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 98ms (Views: 0.1ms | ActiveRecord: 89.7ms | Allocations: 7024)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:58:36 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:58:36 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by UsersController#index as */*
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 1.3ms | Allocations: 4017)
+
+
+  [1m[36mPlace Load (1.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 3.0ms | Allocations: 6585)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:59:23 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (4.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (6.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 16ms (Views: 3.7ms | ActiveRecord: 10.6ms | Allocations: 2791)
+
+
+Started GET "/users" for ::1 at 2020-08-01 00:59:23 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (5.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 11.3ms | Allocations: 4151)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:59:44 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:59:44 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (1.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by UsersController#index as */*
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 8ms (Views: 3.6ms | ActiveRecord: 1.7ms | Allocations: 4005)
+
+
+  [1m[36mPlace Load (2.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 6585)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 00:59:52 -0400
+Started GET "/users" for ::1 at 2020-08-01 00:59:52 -0400
+Processing by UsersController#index as */*
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (7.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (2.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 17ms (Views: 5.2ms | ActiveRecord: 9.2ms | Allocations: 3548)
+
+
+  [1m[36mPlace Load (14.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 0.5ms | ActiveRecord: 17.9ms | Allocations: 7159)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 01:01:30 -0400
+Started GET "/users" for ::1 at 2020-08-01 01:01:30 -0400
+Processing by PlacesController#show as */*
+Processing by UsersController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (4.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  [1m[36mPlace Load (1.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (3.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 15ms (Views: 3.9ms | ActiveRecord: 7.9ms | Allocations: 5061)
+
+
+  [1m[36mPlace Load (3.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 13.5ms | Allocations: 7135)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 01:01:43 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+Started GET "/users" for ::1 at 2020-08-01 01:01:43 -0400
+  [1m[36mPlace Load (2.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 3.1ms | Allocations: 3103)
+
+
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 4151)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 01:02:33 -0400
+Started GET "/users" for ::1 at 2020-08-01 01:02:33 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (1.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (1.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 9ms (Views: 3.4ms | ActiveRecord: 2.1ms | Allocations: 3663)
+
+
+  [1m[36mPlace Load (3.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 4.5ms | Allocations: 7063)
+
+
+Started GET "/places/1" for ::1 at 2020-08-01 01:02:55 -0400
+Started GET "/users" for ::1 at 2020-08-01 01:02:55 -0400
+Processing by PlacesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlace Load (1.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:47:in `set_place'
+Processing by UsersController#index as */*
+  [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:15:in `show'
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 2.0ms | Allocations: 3200)
+
+
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 0.5ms | ActiveRecord: 8.4ms | Allocations: 6362)
+
+

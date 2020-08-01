@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
-
+import { withScriptjs } from "react-google-maps";
+import Map from "../components/Map";
 class showPlaces extends Component {
     state = {
         Places: [],
@@ -27,6 +27,23 @@ class showPlaces extends Component {
             .catch((error) => console.error(error));
     };
 
+    shopMap = () => {
+
+
+        return (
+            <div>
+                <Map />
+
+            </div>
+        )
+
+
+
+
+
+
+    }
+
 
 
     render() {
@@ -36,8 +53,9 @@ class showPlaces extends Component {
                 {this.state.Places.map((places, index) => {
                     return (
                         <div className='container'>
-                            <h4>{places.nick_name}</h4>
-                            <h4>{places.addrees}</h4>
+                            <h4>Title: {places.nick_name}</h4>
+                            <h4 >Address: {places.addrees}</h4>
+                            <button className="btn btn-primary" onClick={() => this.shopMap(this.state.Places)}  ></button>
                         </div>
                     )
 
