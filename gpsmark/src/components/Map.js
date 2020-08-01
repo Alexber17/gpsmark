@@ -122,7 +122,7 @@ class Map extends React.Component {
     return (
       <div>
         <GoogleMapExample
-          containerElement={<div style={{ height: `500px`, width: "500px" }} />}
+          containerElement={<div style={{ height: `500px`, width: "100%" }} />}
           mapElement={<div style={{ height: `100%` }} />}
         ></GoogleMapExample>
 
@@ -151,13 +151,13 @@ class Map extends React.Component {
         <div>
           {this.state.directions.routes
             ? this.state.directions.routes[0].legs[0].steps.map((elemen) => (
-                <div>
-                  {" "}
-                  <p
-                    dangerouslySetInnerHTML={{ __html: elemen.instructions }}
-                  />{" "}
-                </div>
-              ))
+              <div>
+                {" "}
+                <p
+                  dangerouslySetInnerHTML={{ __html: elemen.instructions }}
+                />{" "}
+              </div>
+            ))
             : ""}
         </div>
       </div>

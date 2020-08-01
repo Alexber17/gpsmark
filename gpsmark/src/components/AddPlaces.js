@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 class AddPlaces extends Component {
   state = {
     Places: [],
@@ -28,7 +29,7 @@ class AddPlaces extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/places", {
+    fetch("http://localhost:3000/users/1/places", {
       body: JSON.stringify({
         nick_name: this.state.nick_name,
         addrees: this.state.addrees,
@@ -42,48 +43,62 @@ class AddPlaces extends Component {
       },
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then((newTodo) => {
+        this.setState({
+          Places: [newTodo, ...this.state.Places],
+          nick_name: "",
+          addrees: "",
+          img: "",
+        });
       });
-
-    //   .then((newTodo) => {
-    //     this.setState({
-    //       Places: [newTodo, ...this.state.Places],
-    //       nick_name: "",
-    //       addrees: "",
-    //       img: "",
-    //     });
-    //   });
   };
 
   render() {
+    console.log(this.state.Places)
     return (
+
+
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="nick_name">nick_name</label>
-        <input
-          type="text"
-          value={this.state.nick_name}
-          onChange={this.handleChange}
-          id="nick_name"
-        />
+
+        <div className="form-group">
+          <label htmlFor="nick_name">Title</label>
+          <input
+            className="form-control"
+            type="text"
+            value={this.state.nick_name}
+            onChange={this.handleChange}
+            id="nick_name"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="addrees">address</label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.addrees}
+            onChange={this.handleChange}
+            id="addrees"
+          />
+        </div>
+
+        <div classNameName="form-group">
+          <label htmlFor="img">img</label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.img}
+            onChange={this.handleChange}
+            id="img"
+          />
+        </div>
         <br />
-        <label htmlFor="addrees">address</label>
-        <input
-          type="text"
-          value={this.state.addrees}
-          onChange={this.handleChange}
-          id="addrees"
-        />
-        <br />
-        <label htmlFor="img">img</label>
-        <input
-          type="text"
-          value={this.state.img}
-          onChange={this.handleChange}
-          id="img"
-        />
-        <input type="submit" />
+        <input className="btn btn-primary" type="submit" />
+
+
       </form>
+
+
     );
   }
 }

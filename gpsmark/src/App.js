@@ -3,7 +3,12 @@ import { render } from "react-dom";
 import { withScriptjs } from "react-google-maps";
 import Map from "./components/Map.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 import AddPlaces from "./components/AddPlaces.js";
+import ShowPlaces from "./components/ShowPlaces.js"
+import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
+
+
 
 class App extends Component {
   componentDidMount() {
@@ -19,42 +24,43 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Menu />
-      </div>
-    );
+      <Router>
+        <div className="main">
+          <Switch>
+            <Route path="/Map">
+              <MapApp />
+            </Route>
+            <Route path="/AddPlaces">
+              <AddPlaces />
+            </Route>
+            <Route path="/ShowPlaces">
+              <ShowPlaces />
+            </Route>
+          </Switch>
+        </div>
+        <div className="asideMenu">
+          <ProSidebar>
+            <SidebarHeader>
+              User
+          </SidebarHeader>
+            <Menu iconShape="square">
+              <MenuItem><Link to="/ShowPlaces">Favorite Places</Link></MenuItem>
+              <MenuItem><Link to="/Map">MapApp</Link></MenuItem>
+              <MenuItem> <Link to="/AddPlaces">Add new place</Link></MenuItem>
+            </Menu>
+            <SidebarFooter>
+              By Alexander Bermudez
+            </SidebarFooter>
+          </ProSidebar>
+
+
+        </div>
+      </Router>
+    )
   }
 }
 
-function Menu() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/Map">MapApp</Link>
-            </li>
-            <li>
-              <Link to="/AddPlaces">Add</Link>
-            </li>
-          </ul>
-        </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/Map">
-            <MapApp />
-          </Route>
-          <Route path="/AddPlaces">
-            <AddPlaces />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
-}
 
 function MapApp() {
   const MapLoader = withScriptjs(Map);
@@ -63,7 +69,7 @@ function MapApp() {
       <h3>Hello</h3>
       <MapLoader
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIuglr0yoyg7N3YinUj0xEeKmQCA8VT0"
-        loadingElement={<div style={{ height: `100%` }} />}
+        loadingElement={<div style={{ height: `150%` }} />}
       />
     </div>
   );

@@ -5,13 +5,14 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
     
-
-    render json: @places
+    render json: @places.to_json(include: :user)
   end
 
   # GET /places/1
   def show
-    render json: @place
+    @places = Place.where(user_id: params[:id])
+    
+    render json: @places
   end
 
   # POST /places
@@ -48,6 +49,6 @@ class PlacesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def place_params
-      params.require(:place).permit(:nick_name, :addrees, :img)
+      params.require(:place).permit(:nick_name, :addrees, :img , :user_id)
     end
 end
