@@ -8,8 +8,8 @@
 
 
 User.create([
-  { user: 'Alex', password: '12346' },
-  { user: 'Brittney', password: '23456' }
+  { username: 'Alex', password_digest: '12346' },
+  { username: 'Brittney', password_digest: '23456' }
   
 ])
 
