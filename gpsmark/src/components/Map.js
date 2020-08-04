@@ -1,5 +1,7 @@
 /*global google*/
+
 import React, { Component } from "react";
+
 import {
   Marker,
   withGoogleMap,
@@ -121,11 +123,6 @@ class Map extends React.Component {
 
     return (
       <div>
-        <GoogleMapExample
-          containerElement={<div style={{ height: `500px`, width: "100%" }} />}
-          mapElement={<div style={{ height: `100%` }} />}
-        ></GoogleMapExample>
-
         <form onSubmit={this.handleSubmit}>
           <div>
             <lable htmlFor="description" className="col-sm-1 col-form-label">
@@ -141,26 +138,40 @@ class Map extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div class="col-sm-10">
+            <br />
+            <div class="col-10">
               <button type="submit" class="btn btn-primary">
                 Create{" "}
               </button>
             </div>
+            <br />
           </div>
         </form>
-        <div>
+        <GoogleMapExample
+          containerElement={<div style={{ height: `500px`, width: "100%" }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        ></GoogleMapExample>
+
+
+        <div>.
+       
           {this.state.directions.routes
-            ? this.state.directions.routes[0].legs[0].steps.map((elemen) => (
-              <div>
+            ? <>
+            <h3>{this.state.directions.routes[0].legs[0].end_address}</h3>
+            <h6>{this.state.directions.routes[0].legs[0].distance.text}</h6>
+            <h6>{this.state.directions.routes[0].legs[0].duration.text}</h6>
+          
+            {this.state.directions.routes[0].legs[0].steps.map((elemen) => (
+              <div className="directions" >
                 {" "}
                 <p
                   dangerouslySetInnerHTML={{ __html: elemen.instructions }}
                 />{" "}
               </div>
-            ))
-            : ""}
+            ))}
+            </>: ""}
         </div>
-      </div>
+      </div >
     );
   }
 }

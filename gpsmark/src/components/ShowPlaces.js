@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { withScriptjs } from "react-google-maps";
 import Map from "../components/Map";
 class showPlaces extends Component {
@@ -32,7 +33,7 @@ class showPlaces extends Component {
 
         return (
             <div>
-                <Map />
+
 
             </div>
         )

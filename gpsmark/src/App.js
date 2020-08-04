@@ -3,26 +3,40 @@ import { render } from "react-dom";
 import { withScriptjs } from "react-google-maps";
 import Map from "./components/Map.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Button } from 'react-bootstrap';
+
 import AddPlaces from "./components/AddPlaces.js";
 import ShowPlaces from "./components/ShowPlaces.js"
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
+import { MdPlace, MdMap, MdAddLocation } from "react-icons/md";
+
+import './custom.scss';
 
 
 
 class App extends Component {
+  state = {
+    users: []
+  }
   componentDidMount() {
     this.getData();
   }
 
+
+
   getData = () => {
     fetch("http://localhost:3000/users")
       .then((data) => data.json())
-      .then((json) => console.log(json))
+      .then((json) => this.setState({ users: json }))
       .catch((err) => console.log(err));
   };
 
   render() {
+    if (this.state.users[0]) {
+      console.log(this.state.users[0].username)
+    }
+
+
+
     return (
       <Router>
         <div className="main">
@@ -41,12 +55,12 @@ class App extends Component {
         <div className="asideMenu">
           <ProSidebar>
             <SidebarHeader>
-              User
-          </SidebarHeader>
-            <Menu iconShape="square">
-              <MenuItem><Link to="/ShowPlaces">Favorite Places</Link></MenuItem>
-              <MenuItem><Link to="/Map">MapApp</Link></MenuItem>
-              <MenuItem> <Link to="/AddPlaces">Add new place</Link></MenuItem>
+              <h3>{this.state.users[0] ? this.state.users[0].username : ''}</h3>
+            </SidebarHeader>
+            <Menu iconShape="circle">
+              <MenuItem icon={<MdPlace />} ><Link to="/ShowPlaces">Favorite Places</Link></MenuItem>
+              <MenuItem icon={<MdMap />}  ><Link to="/Map">MapApp</Link></MenuItem>
+              <MenuItem icon={<MdAddLocation />} > <Link to="/AddPlaces">Add new place</Link></MenuItem>
             </Menu>
             <SidebarFooter>
               By Alexander Bermudez
