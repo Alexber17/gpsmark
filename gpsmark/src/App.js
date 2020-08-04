@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import AddPlaces from "./components/AddPlaces.js";
 import ShowPlaces from "./components/ShowPlaces.js"
+
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
 import { MdPlace, MdMap, MdAddLocation } from "react-icons/md";
 
@@ -63,7 +64,7 @@ class App extends Component {
               <MenuItem icon={<MdAddLocation />} > <Link to="/AddPlaces">Add new place</Link></MenuItem>
             </Menu>
             <SidebarFooter>
-              By Alexander Bermudez
+              <p>By Alexander Bermudez</p>
             </SidebarFooter>
           </ProSidebar>
 
