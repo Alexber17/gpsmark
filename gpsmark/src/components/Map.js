@@ -1,7 +1,7 @@
 /*global google*/
 
 import React, { Component } from "react";
-
+import mapStyle from '../mapStyle'
 import {
   Marker,
   withGoogleMap,
@@ -9,6 +9,7 @@ import {
   GoogleMap,
   DirectionsRenderer,
 } from "react-google-maps";
+
 
 import Geocode from "react-geocode";
 
@@ -115,6 +116,8 @@ class Map extends React.Component {
       <GoogleMap
         defaultCenter={{ lat: this.state.latOrigin, lng: this.state.lngOrigin }}
         defaultZoom={13}
+        options={{styles: mapStyle}}
+
       >
         <DirectionsRenderer directions={this.state.directions} />
         <Marker lat={this.state.latOrigin} lng={this.state.lngOrigin} />
@@ -128,6 +131,7 @@ class Map extends React.Component {
             <lable htmlFor="description" className="col-sm-1 col-form-label">
               Destination Address:
             </lable>
+
             <div class="col-sm-11">
               <input
                 type="text"

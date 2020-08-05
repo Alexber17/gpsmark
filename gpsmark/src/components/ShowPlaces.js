@@ -58,16 +58,19 @@ class showPlaces extends Component {
         console.log(this.state.Places)
         return (
             <div>
+                <h3>Favorite Places</h3>
                 {this.state.Places.map((places, index) => {
                     return (
                         <>
 
-                            <div style={{ display: this.state.showThisMap ? "block" : "null" }} key={places.id} className='container'>
+                            <div key={places.id} className='container'>
                                 <h4>Title: {places.nick_name}</h4>
                                 <h4 >Address: {places.addrees}</h4>
                                 <button className="btn btn-primary" onClick={() => this.showMap(places.id)}  >Route</button>
-
                                 {this.state.showThisMap[places.id] ? <MapApp place={places.addrees} ></MapApp> : ''}
+
+
+
                             </div>
                         </>
                     )

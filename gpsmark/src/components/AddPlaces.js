@@ -56,48 +56,50 @@ class AddPlaces extends Component {
   render() {
     console.log(this.state.Places)
     return (
+      <div>
+        <h3>Add Places</h3>
 
 
-      <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
 
-        <div className="form-group">
-          <label htmlFor="nick_name">Title</label>
-          <input
-            className="form-control"
-            type="text"
-            value={this.state.nick_name}
-            onChange={this.handleChange}
-            id="nick_name"
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="nick_name">Title</label>
+            <input
+              className="form-control"
+              type="text"
+              value={this.state.nick_name}
+              onChange={this.handleChange}
+              id="nick_name"
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="addrees">address</label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.addrees}
-            onChange={this.handleChange}
-            id="addrees"
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="addrees">address</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.addrees}
+              onChange={this.handleChange}
+              id="addrees"
+            />
+          </div>
 
-        <div classNameName="form-group">
-          <label htmlFor="img">img</label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.img}
-            onChange={this.handleChange}
-            id="img"
-          />
-        </div>
-        <br />
-        <input className="btn btn-primary" type="submit" />
+          <div classNameName="form-group">
+            <label htmlFor="img">img</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.img}
+              onChange={this.handleChange}
+              id="img"
+            />
+          </div>
+          <br />
+          <input className="btn btn-primary" type="submit" />
 
 
-      </form>
-
+        </form>
+      </div>
 
     );
   }

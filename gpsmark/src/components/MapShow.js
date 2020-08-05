@@ -1,5 +1,6 @@
 /*global google*/
 import React, { Component } from "react";
+import mapStyle from '../mapStyle'
 import {
   Marker,
   withGoogleMap,
@@ -111,6 +112,7 @@ class Mapshow extends React.Component {
       <GoogleMap
         defaultCenter={{ lat: this.state.latOrigin, lng: this.state.lngOrigin }}
         defaultZoom={13}
+        options={{ styles: mapStyle }}
       >
         <DirectionsRenderer directions={this.state.directions} />
         <Marker lat={this.state.latOrigin} lng={this.state.lngOrigin} />

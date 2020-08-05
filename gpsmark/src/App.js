@@ -1,20 +1,21 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React, { Component, useRef } from "react";
 import { withScriptjs } from "react-google-maps";
-import Map from "./components/Map.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import Map from "./components/Map.js";
 import AddPlaces from "./components/AddPlaces.js";
-import ShowPlaces from "./components/ShowPlaces.js"
+import ShowPlaces from "./components/ShowPlaces.js";
+import DeletePlace from "./components/DeletePlace.js";
+import EditPlace from "./components/EditPlace"
 
-import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
+import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter } from 'react-pro-sidebar';
 import { MdPlace, MdMap, MdAddLocation } from "react-icons/md";
 
-import './custom.scss';
 
 
 
 class App extends Component {
+
   state = {
     users: []
   }
@@ -51,6 +52,12 @@ class App extends Component {
             <Route path="/ShowPlaces">
               <ShowPlaces />
             </Route>
+            <Route path="/DeletePlace">
+              <DeletePlace />
+            </Route>
+            <Route path="/EditPlace">
+              <EditPlace />
+            </Route>
           </Switch>
         </div>
         <div className="asideMenu">
@@ -61,7 +68,12 @@ class App extends Component {
             <Menu iconShape="circle">
               <MenuItem icon={<MdPlace />} ><Link to="/ShowPlaces">Favorite Places</Link></MenuItem>
               <MenuItem icon={<MdMap />}  ><Link to="/Map">MapApp</Link></MenuItem>
-              <MenuItem icon={<MdAddLocation />} > <Link to="/AddPlaces">Add new place</Link></MenuItem>
+              <SubMenu title="Places" icon={<MdAddLocation />} >
+                <MenuItem icon={<MdAddLocation />} > <Link to="/AddPlaces">Add new </Link></MenuItem>
+                <MenuItem icon={<MdAddLocation />} > <Link to="/EditPlace"></Link>Edit </MenuItem>
+                <MenuItem icon={<MdAddLocation />} > <Link to="/DeletePlace">Delete </Link></MenuItem>
+              </SubMenu>
+
             </Menu>
             <SidebarFooter>
               <p>By Alexander Bermudez</p>
@@ -81,11 +93,14 @@ function MapApp() {
   const MapLoader = withScriptjs(Map);
   return (
     <div className="App">
-      <h3>Hello</h3>
+      <h3>MapApp</h3>
+
       <MapLoader
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIuglr0yoyg7N3YinUj0xEeKmQCA8VT0"
         loadingElement={<div style={{ height: `150%` }} />}
+
       />
+
     </div>
   );
 }
