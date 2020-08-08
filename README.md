@@ -1,4 +1,4 @@
-# GPSmark / Repository Name
+# GPSmark 
 
 ## About
 
