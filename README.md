@@ -6,7 +6,7 @@
 * Project status: working/prototype
 
 
-See real examples:
+## See real examples:
 
 * <https://gpsmark-client.herokuapp.com/ShowPlaces>
 * <https://gpsmark-client.herokuapp.com/Map>
@@ -16,14 +16,17 @@ See real examples:
 
 ## Wireframe
 
-
-
 <img src="https://github.com/Alexber17/GPSmark/blob/master/IMG_5366.jpg" width="400" height="500" >
 
-# Project Schedule
 
+## User stories
+* User can look for a route to a place 
+* User can add a Place 
+* User can delete a place 
+* User can update a place
+
+## Project Schedule
 This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
 
 |  Day | Deliverable | Status
 |---|---| ---|
