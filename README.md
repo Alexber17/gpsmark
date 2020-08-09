@@ -13,12 +13,6 @@
 
 
 
-
-## Wireframe
-
-<img src="https://github.com/Alexber17/GPSmark/blob/master/IMG_5366.jpg" width="400" height="500" >
-
-
 ## User stories
 * User can look for a route to a place 
 * User can add a Place 
